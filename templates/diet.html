@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Diet Plan-Ai-Powered Nutrition Analyzer</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 250vh;
+            background-color: #f0f0f0;
+        }
+        .background {
+            background-image: url("/static/home.jpg"); /* Add your image URL here */
+            background-attachment: ; /* Fixed background */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover; /* Cover the entire container */
+            height: 250vh; /* Adjusted height to cover entire viewport */
+            filter: blur(px); /* Apply blur effect to the background image */
+            position: absolute; /* Position the background absolutely */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1; /* Send the background behind other content */
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #8B008B;
+            color: white;
+            box-shadow: 0px 8px 4px grey;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2vw;
+            text-align: left;
+        }
+        .topnav-right {
+            float: right;
+            padding-right: 100px;
+        }
+        .topnav-right a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+        }
+        .topnav-right a.active {
+            background-color: #DA70D6;
+            color: black;
+            border-radius: 5px;
+        }
+        .content {
+            padding: 2rem;
+            text-align: center;
+        }
+        .footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #8B008B;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h3 {
+            color: #6A007C;
+        }
+        ul {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">Ai-Powered Nutrition Analyzer</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/upload">Analyzer</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Services
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                   <a class="dropdown-item" href="/fitness">Fitness Plan</a>
+                    <a class="dropdown-item" href="/diet">Diet Plan</a>
+                    <a class="dropdown-item" href="/personal">Personal Assistant</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/signin">Signin</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/signup">Signup</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="background"></div>
+<div class="container">
+    <h2>Diet Plan</h2>
+
+    <!-- Age Group: Children -->
+    <div class="section">
+        <h3>Children (Ages 5-12)</h3>
+        <p>Calorie Range: 1200-1800 kcal/day</p>
+        <ul>
+            <li>Breakfast:
+                <ul>
+                    <li>Cereal with milk</li>
+                    <li>Fruit (banana, apple)</li>
+                    <li>Whole-grain toast</li>
+                </ul>
+            </li>
+            <li>Lunch:
+                <ul>
+                    <li>Grilled chicken sandwich</li>
+                    <li>Vegetable sticks (carrots, cucumbers)</li>
+                    <li>Yogurt</li>
+                </ul>
+            </li>
+            <li>Dinner:
+                <ul>
+                    <li>Pasta with tomato sauce</li>
+                    <li>Steamed broccoli</li>
+                    <li>Lean protein (fish, tofu)</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Age Group: Adults -->
+    <div class="section">
+        <h3>Adults (Ages 18-50)</h3>
+        <p>Calorie Range: 1800-2400 kcal/day</p>
+        <ul>
+            <li>Breakfast:
+                <ul>
+                    <li>Oatmeal with nuts and berries</li>
+                    <li>Whole-grain toast with avocado</li>
+                    <li>Greek yogurt</li>
+                </ul>
+            </li>
+            <li>Lunch:
+                <ul>
+                    <li>Quinoa salad with vegetables</li>
+                    <li>Grilled chicken or tofu</li>
+                    <li>Fruit smoothie</li>
+                </ul>
+            </li>
+            <li>Dinner:
+                <ul>
+                    <li>Baked salmon with quinoa</li>
+                    <li>Steamed vegetables</li>
+                    <li>Green salad</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Age Group: Seniors -->
+    <div class="section">
+        <h3>Seniors (Ages 60+)</h3>
+        <p>Calorie Range: 1600-2000 kcal/day</p>
+        <ul>
+            <li>Breakfast:
+                <ul>
+                    <li>Whole-grain cereal with low-fat milk</li>
+                    <li>Fruit (berries, melon)</li>
+                    <li>Toast with peanut butter</li>
+                </ul>
+            </li>
+            <li>Lunch:
+                <ul>
+                    <li>Grilled fish or chicken</li>
+                    <li>Steamed vegetables</li>
+                    <li>Whole-grain bread</li>
+                </ul>
+            </li>
+            <li>Dinner:
+                <ul>
+                    <li>Vegetable stir-fry with tofu</li>
+                    <li>Brown rice</li>
+                    <li>Leafy green salad</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="footer">
+    <p>&copy; 2024 AI-Powered Nutrition Analyzer</p>
+    <a href="/contact">Contact Us</a>
+    <a href="/about">About Us</a>
+    <a href="#">Feedback</a>
+    <a href="#">Facebook</a>
+    <a href="#">Twitter</a>
+    <a href="#">Instagram</a>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

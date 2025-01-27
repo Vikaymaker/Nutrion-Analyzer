@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Firebase and MySQL Integration</title>
+<style>
+    /* Your CSS styles here */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background-color: #f0f0f0;
+    }
+    header {
+        background-color: #0A1828;
+        color: white;
+        padding: 1rem;
+        text-align: center;
+    }
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 300px;
+        padding: 2rem;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    input[type="email"],
+    input[type="password"] {
+        width: 100%;
+        max-width: 300px;
+        margin-top: 0.5rem;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+</style>
+</head>
+<body>
+<header>
+    <h1>Firebase and MySQL Integration</h1>
+</header>
+<main>
+    <h2>Sign in</h2>
+    <form id="login-form">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="button" id="loginButton">Login</button>
+    </form>
+</main>
+<script src="https://www.gstatic.com/firebasejs/9.6.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.5/firebase-database.js"></script>
+<script>
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+    apiKey: "AIzaSyBwWETrLh-p6c13DbALRFTgTX9hukViR6Y",
+    authDomain: "loki-2cd8f.firebaseapp.com",
+    projectId: "loki-2cd8f",
+    storageBucket: "loki-2cd8f.appspot.com",
+    messagingSenderId: "329457220937",
+    appId: "1:329457220937:web:4cfe89be7d77611cba6e98",
+    measurementId: "G-SVVZ8Q38HB"
+  };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    // Firebase database reference
+    const database = firebase.database();
+
+    // Function to save data to MySQL through Firebase Cloud Functions
+    function saveDataToMySQL(data) {
+        const saveToMySQL = firebase.functions().httpsCallable('saveToMySQL');
+        saveToMySQL(data)
+            .then(result => {
+                console.log(result.data);
+                // Handle success
+            })
+            .catch(error => {
+                console.error(error);
+                // Handle error
+            });
+    }
+
+    // Example: Login functionality
+    document.getElementById('loginButton').addEventListener('click', () => {
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const data = { email, password };
+        saveDataToMySQL(data);
+    });
+</script>
+</body>
+</html>
